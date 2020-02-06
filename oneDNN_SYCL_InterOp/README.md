@@ -1,12 +1,12 @@
-# DNNL SYCL Interop sample
- This DNNL SYCL Interop sample code is implemented using C++ and DPC++ language for CPU and GPU. 
+# oneDNN SYCL Interop sample
+ This oneDNN SYCL Interop sample code is implemented using C++ and DPC++ language for CPU and GPU. 
 
 | Optimized for                       | Description
 |:---                               |:---
 | OS                                | Linux Ubuntu 18.04; 
 | Hardware                          | Kaby Lake with GEN9 or newer
 | Software                          | Intel oneAPI Deep Neural Network Library (oneDNN), Intel oneAPI DPC++ Compiler, Intel oneAPI DPC++ Library (oneDPL), Intel oneAPI Threading Building Blocks (oneTBB)
-| What you will learn               | DNNL SYCL extensions API programming for both Intel CPU and GPU
+| What you will learn               | oneDNN SYCL extensions API programming for both Intel CPU and GPU
 | Time to complete                  | 15 minutes
 
 
@@ -65,7 +65,7 @@ or
   If setvars.sh complains "not found" for compiler or dnnl, please check your installation first.
   
 ```    
-    cd DLDevKit-code-samples/DNNL_SYCL_InterOp
+    cd DLDevKit-code-samples/oneDNN_SYCL_InterOp
     mkdir dpcpp
     cd dpcpp
     cmake .. -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=dpcpp 
@@ -89,7 +89,7 @@ or
 
 ### on Linux  
 
-- Enable DNNL Verbose log
+- Enable oneDNN Verbose log
 
   ```
   export DNNL_VERBOSE=1
@@ -98,18 +98,18 @@ or
 - CPU Results
 
   ```
-  dnnl_verbose,info,DNNL v1.0.0 (commit 560f60fe6272528955a56ae9bffec1a16c1b3204)
+  dnnl_verbose,info,DNNL v1.90.1 (commit 9151ddc657e4c6775f17f3bcec46872e5fac47ee)
   dnnl_verbose,info,Detected ISA is Intel AVX2
-  dnnl_verbose,exec,cpu,eltwise,jit:avx2,forward_training,data_f32::blocked:abcd:f0 diff_undef::undef::f0,alg:eltwise_relu:0:0,2x3x4x5,958.552
+  dnnl_verbose,exec,cpu,eltwise,jit:avx2,forward_training,data_f32::blocked:abcd:f0 diff_undef::undef::f0,,alg:eltwise_relu alpha:0 beta:0,2x3x4x5,700.608
   Example passes
   ```
 
 - GPU Results
 
   ```
-  dnnl_verbose,info,DNNL v1.0.0 (commit 560f60fe6272528955a56ae9bffec1a16c1b3204)
+  dnnl_verbose,info,DNNL v1.90.1 (commit 9151ddc657e4c6775f17f3bcec46872e5fac47ee)
   dnnl_verbose,info,Detected ISA is Intel AVX2
-  dnnl_verbose,exec,gpu,eltwise,ocl:ref:any,forward_training,data_f32::blocked:abcd:f0 diff_undef::undef::f0,alg:eltwise_relu:0:0,2x3x4x5
+  dnnl_verbose,exec,gpu,eltwise,ocl:ref:any,forward_training,data_f32::blocked:abcd:f0 diff_undef::undef::f0,,alg:eltwise_relu alpha:0 beta:0,2x3x4x5
   Example passes
   ```
 
